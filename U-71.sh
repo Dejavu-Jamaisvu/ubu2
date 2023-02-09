@@ -29,7 +29,6 @@ filename="/etc/apache2/apache2.conf"
 # 파일이 있는지 확인하십시오
 if [ ! -e "$filename" ]; then
   INFO "$filename does not exist"
-  exit 1
 fi
 
 # 파일을 백업합니다
@@ -52,7 +51,7 @@ if ! grep -q "ServerSignature Off" "$filename"; then
 fi
 
 # Apache를 재시작하여 변경 사항 적용
-sudo systemctl restart apache2
+sudo systemctl restart apache2s
 
 INFO "Server Tokens and Server Signature successfully set in $filename."
 
